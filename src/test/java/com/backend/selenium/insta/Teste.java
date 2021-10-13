@@ -14,7 +14,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 
 class Teste {
 	WebDriver driver;
-	LoginPage page1;
+	LoginPage loginPage;
 	String email = "matheus-vieira12@hotmail.com";
 
 	@BeforeEach
@@ -22,7 +22,7 @@ class Teste {
 		System.setProperty("webdriver.edge.driver", "C:\\Users\\mathe\\Desktop\\SERRATEC\\API JAVA WORKSPACE\\InstagramTestLogin\\webdriver\\msedgedriver.exe");
 		driver = new EdgeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		page1 = new LoginPage(driver);
+		loginPage = new LoginPage(driver);
 		
 	}
 
@@ -32,10 +32,10 @@ class Teste {
 
 	@Test
 	void test() throws InterruptedException {
-		page1.abrirPagina();
-		page1.informarLogin(email, Bot.password);
-		page1.clicarLogin();
-		page1.resultadoEsperado();
+		loginPage.abrirPagina();
+		loginPage.informarLogin(email, Bot.password);
+		loginPage.clicarLogin();
+		loginPage.validarResultado();
 		
 //		driver.get("https://facebook.com");
 //		driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(email);

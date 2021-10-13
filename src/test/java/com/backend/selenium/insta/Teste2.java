@@ -2,6 +2,7 @@ package com.backend.selenium.insta;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -29,10 +30,11 @@ class Teste2 {
 
 	@AfterEach
 	void tearDown() throws Exception {
+		driver.quit();
 	}
 
 	@Test
-	void test() {
+	void test() throws IOException {
 //		driver.get("https://facebook.com");
 //		driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(email);
 //		driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(Bot.password);
@@ -40,10 +42,11 @@ class Teste2 {
 		loginPage.abrirPagina();
 		loginPage.informarLogin(email, Bot.password);
 		loginPage.clicarLogin();
-		homePage.abreSearch();
-		homePage.digitaNome("Matheus");
-		homePage.clicaEmPesquisar();
+		homePage.abrirSearch();
+		homePage.digitarNome("Matheus");
+		homePage.clicarEmPesquisar();
 		homePage.resultadoEsperado();
+		homePage.tirarScreenshot();
 		
 		
 //		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

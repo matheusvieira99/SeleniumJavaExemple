@@ -24,7 +24,7 @@ public class LoginPage {
 		driver.findElement(By.xpath("//button[@name='login']")).click();
 	}
 	
-	public void resultadoEsperado() {
+	public void validarResultado() {
 		Assert.assertTrue("Validando login", driver.findElement(By.xpath("//*[@id=\"facebook\"]/body/div[11]/div[1]/div/div[2]")).isDisplayed());
 	}
 

@@ -1,30 +1,47 @@
 package com.backend.selenium.insta;
 
+import java.io.File;
+import java.io.IOException;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import com.backend.selenium.insta.Teste;
+import org.testcontainers.shaded.org.apache.commons.io.FileUtils;
 
 public class HomePage {
 	
 	WebDriver driver;
+	
 
 	public HomePage(WebDriver driver) {
 		super();
 		this.driver = driver;
 	}
 	
-	public void abreSearch() {
+	public void abrirSearch() {
 		driver.findElement(By.xpath("//*[@id=\"facebook\"]/body/div[11]/div[1]/div/div[2]")).click();
 		driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div/div/div/label/input")).click();
 	}
 	
-	public void digitaNome(String nome) {
+	public void digitarNome(String nome) {
 		driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div[1]/div/div/label/input")).sendKeys(nome);
 	}
 	
-	public void clicaEmPesquisar() {
+	public void clicarEmPesquisar() {
 		driver.findElement(By.xpath("/html/body/div[1]/div/div[1]/div/div[2]/div[2]/div/div/div[2]/div/ul/li[9]/div/a/div")).click();
+	}
+	
+	public void tirarScreenshot() throws IOException {
+		String path;
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		path = "C:\\Users\\mathe\\Downloads\\" + scrFile.getName();
+        FileUtils.copyFile(scrFile, new File(path)); 
+//		FileUtils.copyFile(scrFile, new File("C:\\Users\\mathe\\Downloads"));
+	}
+	
+	public void salvarScreenshot() {
 	}
 	
 	public void resultadoEsperado() {
