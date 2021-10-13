@@ -47,6 +47,7 @@ class Teste2 {
 		homePage.digitarNome("Matheus");
 		homePage.clicarEmPesquisar();
 		homePage.resultadoEsperado();
+		homePage.rolarBarra();
 		homePage.tirarScreenshot();
 		
 		
