@@ -28,11 +28,13 @@ class Teste {
 
 	@AfterEach
 	void tearDown() throws Exception {
+		driver.quit();
 	}
 
 	@Test
 	void test() throws InterruptedException {
 		loginPage.abrirPagina();
+		loginPage.maximizarPagina();
 		loginPage.informarLogin(email, Bot.password);
 		loginPage.clicarLogin();
 		loginPage.validarResultado();

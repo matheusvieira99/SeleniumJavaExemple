@@ -15,6 +15,10 @@ public class LoginPage {
 		driver.get("https://facebook.com");
 	}
 	
+	public void maximizarPagina() {
+		driver.manage().window().maximize();
+	}
+	
 	public void informarLogin (String email, String password) {
 		driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(email);
 		driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(Bot.password);

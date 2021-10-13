@@ -40,6 +40,7 @@ class Teste2 {
 //		driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(Bot.password);
 //		driver.findElement(By.xpath("//button[@name='login']")).click();
 		loginPage.abrirPagina();
+		loginPage.maximizarPagina();
 		loginPage.informarLogin(email, Bot.password);
 		loginPage.clicarLogin();
 		homePage.abrirSearch();
