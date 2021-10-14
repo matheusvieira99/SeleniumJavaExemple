@@ -1,36 +1,38 @@
-package com.backend.selenium.insta;
-
-import static org.junit.jupiter.api.Assertions.*;
+package com.backend.selenium.facebook.testes;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 
+import com.backend.selenium.facebook.paginas.HomePage;
+import com.backend.selenium.facebook.paginas.LoginPage;
+import com.backend.selenium.facebook.senha.Bot;
+
 class Teste2 {
-	WebDriver driver;
+	WebDriver webDriver;
 	HomePage homePage;
 	LoginPage loginPage;
 	String email = "matheus-vieira12@hotmail.com";
 
 	@BeforeEach
 	void setUp() throws Exception {
-		System.setProperty("webdriver.edge.driver", "C:\\Users\\mathe\\Desktop\\SERRATEC\\API JAVA WORKSPACE\\InstagramTestLogin\\webdriver\\msedgedriver.exe");
-		driver = new EdgeDriver();
-		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
-		homePage = new HomePage(driver);
-		loginPage = new LoginPage(driver);
+		//System.setProperty("webdriver.edge.driver", "C:\\Users\\Matheus\\Desktop\\projects\\javaSeleniumExample\\SeleniumJavaExemple\\webdriver\\msedgedriver.exe");
+		//System.getProperty("user.dir") + "\\msedgedriver.exe";
+		System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "\\webdriver\\msedgedriver.exe");
+		webDriver = new EdgeDriver();
+		webDriver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+		homePage = new HomePage(webDriver);
+		loginPage = new LoginPage(webDriver);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		driver.quit();
+		webDriver.quit();
 	}
 
 	@Test

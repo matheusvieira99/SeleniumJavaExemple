@@ -1,8 +1,10 @@
-package com.backend.selenium.insta;
+package com.backend.selenium.facebook.paginas;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import com.backend.selenium.facebook.senha.Bot;
 
 public class LoginPage {
 	WebDriver driver;

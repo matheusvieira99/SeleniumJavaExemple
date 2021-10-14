@@ -1,10 +1,5 @@
 package com.backend.selenium.insta;
 
-import org.openqa.selenium.By;
-import com.backend.selenium.insta.Bot;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-
 
 public class InstagramTestLoginApplication {
 

@@ -1,16 +1,15 @@
-package com.backend.selenium.insta;
-
-import static org.junit.jupiter.api.Assertions.*;
+package com.backend.selenium.facebook.testes;
 
 import java.util.concurrent.TimeUnit;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+
+import com.backend.selenium.facebook.paginas.LoginPage;
+import com.backend.selenium.facebook.senha.Bot;
 
 class Teste {
 	WebDriver driver;
@@ -19,7 +18,7 @@ class Teste {
 
 	@BeforeEach
 	void setUp() throws Exception {
-		System.setProperty("webdriver.edge.driver", "C:\\Users\\mathe\\Desktop\\SERRATEC\\API JAVA WORKSPACE\\InstagramTestLogin\\webdriver\\msedgedriver.exe");
+		System.setProperty("webdriver.edge.driver", System.getProperty("user.dir") + "\\webdriver\\msedgedriver.exe");
 		driver = new EdgeDriver();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		loginPage = new LoginPage(driver);
