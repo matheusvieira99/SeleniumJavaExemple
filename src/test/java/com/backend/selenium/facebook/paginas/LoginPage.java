@@ -1,5 +1,7 @@
 package com.backend.selenium.facebook.paginas;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +25,7 @@ public class LoginPage {
 	
 	public void informarLogin (String email, String password) {
 		driver.findElement(By.xpath("//*[@id=\"email\"]")).sendKeys(email);
-		driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(Bot.password);
+		driver.findElement(By.xpath("//*[@id=\"pass\"]")).sendKeys(password);
 	}
 	
 	public void clicarLogin () {
@@ -32,6 +34,11 @@ public class LoginPage {
 	
 	public void validarResultado() {
 		Assert.assertTrue("Validando login", driver.findElement(By.xpath("//*[@id=\"facebook\"]/body/div[11]/div[1]/div/div[2]")).isDisplayed());
+	}
+	
+	public void validarResultadoNegativo() {
+		//String s = "A senha inserida está incorreta.";
+		assertEquals("A senha inserida está incorreta.", "A senha inserida está incorreta.");
 	}
 
 }
