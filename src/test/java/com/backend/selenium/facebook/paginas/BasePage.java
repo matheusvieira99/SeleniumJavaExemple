@@ -18,12 +18,16 @@ public class BasePage {
 	public BasePage(WebDriver driver) {
 		this.driver = driver;
 	}
+	
+	public void abrirPagina (String url) {
+		driver.get(url);
+	}
 
 	public void tirarScreenshot() throws IOException {
 		String path;
-		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-		path = "C:\\Users\\Matheus\\Downloads\\" + scrFile.getName();
-        FileUtils.copyFile(scrFile, new File(path)); 
+		File batatinha = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+		path = "C:\\Users\\Matheus\\Downloads\\" + batatinha.getName();
+        FileUtils.copyFile(batatinha, new File(path)); 
 //		FileUtils.copyFile(scrFile, new File("C:\\Users\\mathe\\Downloads"));
 	}
 	
@@ -37,5 +41,10 @@ public class BasePage {
 //		js.executeScript("window.scrollTo(0, document.body.scrollHeight)"); 
 		((JavascriptExecutor)driver).executeScript("scroll(0,1000)");
 	}
+	
+	public void maximizarPagina() {
+		driver.manage().window().maximize();
+	}
+	
 
 }

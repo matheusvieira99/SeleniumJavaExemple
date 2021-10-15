@@ -6,21 +6,10 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.backend.selenium.facebook.senha.Bot;
-
-public class LoginPage {
-	WebDriver driver;
+public class LoginPage extends BasePage {
 	
 	public LoginPage (WebDriver driver) {
-		this.driver = driver;
-	}
-	
-	public void abrirPagina () {
-		driver.get("https://facebook.com");
-	}
-	
-	public void maximizarPagina() {
-		driver.manage().window().maximize();
+		super(driver);
 	}
 	
 	public void informarLogin (String email, String password) {
@@ -32,13 +21,15 @@ public class LoginPage {
 		driver.findElement(By.xpath("//button[@name='login']")).click();
 	}
 	
-	public void validarResultado() {
+	public void validarLoginSucesso() {
 		Assert.assertTrue("Validando login", driver.findElement(By.xpath("//*[@id=\"facebook\"]/body/div[11]/div[1]/div/div[2]")).isDisplayed());
 	}
 	
-	public void validarResultadoNegativo() {
+	public void validarMensagemSenhaIncorreta() {
 		//String s = "A senha inserida está incorreta.";
-		assertEquals("A senha inserida está incorreta.", "A senha inserida está incorreta.");
+		assertEquals("A senha inserida está incorreta. Esqueceu a senha?", driver.findElement(By.xpath("//*[@id='loginform']/div[2]/div[2]")).getText());
+		
 	}
+	
 
 }
